@@ -1,0 +1,258 @@
+% LaTeX file for resume 
+% This file uses the resume document class (res.cls)
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{CormorantGaramond}
+\usepackage[english]{babel} % English hyphenation, etc.
+% Note: may need to includehead in geometry package
+\usepackage[top=1.2in, bottom=.8in, left=0.8in, right=0.8in, headheight=44pt, headsep=0pt]{geometry}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Personal info
+\newcommand{\myemail}{\href{mailto: tasulliv@ucsd.edu}{tasulliv@ucsd.edu}}
+\newcommand{\myphone}{(347) 669-2103}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Spacing
+
+% helpful indent values
+\newcommand{\fixw}{18pt}
+\newcommand{\mintextwidth}{\textwidth - \fixw - \fixw}
+
+% Adjust spacing between lines
+\usepackage{setspace}
+% \setstretch{1.15}
+
+% Change space between paragraphs
+\usepackage{parskip}
+\setlength{\parskip}{0pt}
+% \setlength{\baselineskip}{0pt}
+
+ % remove all indents 
+\setlength\parindent{0pt}
+
+% Some standardized vertical spacing
+\newcommand{\mysep}{\vspace{4pt}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tables
+
+% allows you to set tabular width equal to text width
+\usepackage{tabularx}
+% to use multicolumn
+\usepackage{booktabs}
+
+% remove space before and after table columns
+% Don't need to write \begin{tabularx}{\textwidth}{@{}Xr@{}}
+% Can just write \begin{tabularx}{\textwidth}{Xr}
+\setlength{\tabcolsep}{0pt} 
+
+
+% Create a left aligned column .8 of textwidth 
+\newcolumntype{L}{>{\raggedright\arraybackslash}p{.8\textwidth}}
+% Create a right aligned column .2 of textwidth
+\newcolumntype{R}{>{\raggedleft\arraybackslash}p{.2\textwidth}}
+
+
+% Create a multicolumn that is text width minus a tab
+% Calculate length
+\usepackage{calc}
+\newlength{\twtab}
+\setlength{\twtab}{\textwidth-\fixw} % find textwidth minus tab 
+% With a \vspace
+% \newcommand{\tab}[1]{\noalign{\vspace{3pt}} \multicolumn{2}{@{\hspace{\fixw}}p{\twtab}}{{#1}}}
+% Without a vspace
+\newcommand{\tab}[1]{\multicolumn{2}{@{\hspace{\fixw}}p{\twtab}}{{#1}}}
+% Without indent:
+% \newcommand{\tab}[1]{\noalign{\vspace{3pt}} \multicolumn{2}{@{}p{\textwidth}}{{#1}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Colors
+\usepackage[dvipsnames]{xcolor}
+\definecolor{MainBlue}{RGB}{0, 106, 150} % UCSD's main blue
+% set up hyperlink's
+\usepackage[plainpages=false,pdfpagelabels]{hyperref}
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = MainBlue, %Colour for external hyperlinks
+  linkcolor    = MainBlue, %Colour of internal links
+  citecolor   = red %Colour of citations
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Create bulleited list of fixed width
+\usepackage{enumitem}
+\newlist{blist}{itemize}{2}
+\setlist[blist,1]{label=\textendash,left=0pt .. \fixw}
+\setlist[blist,2]{label=\textendash,left=0pt .. \fixw}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set headers
+
+\usepackage{fancyhdr} 
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\begin{tabularx}{\textwidth}{@{}Xll}
+\noalign{\vspace{1pt}}
+\textbf{\Large Tara Sullivan} 
+    & Email: &\ \myemail{} \\
+\noalign{\vspace{1pt}}
+Department of Economics 
+    & Phone: &\ \myphone{} \\
+\noalign{\vspace{1pt}}
+University of California, San Diego 
+    & Links: &\ \href{http://tara-sullivan.github.io}{Website}, 
+    \href{https://github.com/tara-sullivan}{Github},
+    \href{https://www.linkedin.com/in/tara-sullivan-econ/}{LinkedIn}
+\end{tabularx}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Format font of sections and lines for sections
+
+\usepackage{titlesec} % Format section headers
+% Add a horizontal line before each item
+\titleformat{\section}{\titlerule\normalfont\large\bfseries}{\section}{1em}{}[]
+% Alternative: add horizontal line after each item
+% \titleformat{\section}{\normalfont\large\bfseries}{\section}{1em}{}[{\titlerule[0.4pt]}]
+
+% Change title spacing
+\titlespacing{\section}{0pt}{\parskip}{0pt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Education}
+
+\begin{tabularx}{\textwidth}{LR}
+\textbf{University of California, San Diego}, La Jolla CA & Sept. 2015 - present
+\\
+Ph.D. Candidate in Economics \emph{[Expected: June 2022]} & 
+\\
+\emph{Primary fields:} Macroeconomics, Econometrics
+\\
+\emph{Dissertation:} ``Group-based beliefs and human capital specialization''
+\end{tabularx} 
+\begin{blist}
+\item If men and women choose their major based on their expected probability of success in a field, and those beliefs are formed based on existing outcomes for men and women, do otherwise identical men and women make different major choices? And does this perpetuate gender gaps in college major choice?
+\item Model incorporates Bayesian learning into optimal stopping problem. 
+\item Data analysis and theoretical modeling programmed in Python; see Github repository (\href{https://github.com/tara-sullivan/hcs}{link})
+\end{blist}
+
+\mysep{}
+\begin{tabularx}{\textwidth}{@{}Xr@{}}
+\textbf{Boston College}, Chestnut Hill, MA & Sept. 2008 - May 2012 \\
+BA in Economics (Honors), BA in International Relations
+\\
+\emph{Phi beta kappa, magna cum laude, Giffuni prize for best senior thesis in the Economics department}
+\end{tabularx}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mysep{}
+\section*{Employment history}
+
+\begin{tabularx}{\textwidth}{LR}
+\textbf{University of California, San Diego}, La Jolla CA 
+&
+Oct. 2015 - present
+\\
+\emph{Teaching Assistant}
+\end{tabularx}
+\begin{blist}
+\item Principals of Macroeconomics, Winter 2019, 2020, \& 2021. Managed a teaching staff of 10-12 for a course of 500 students. Organized transition to online exams in March 2020, and to full online instruction in 2021. Instructor: Valerie Ramey. 
+
+\item Ph.D. Econometrics A, Fall 2017 \& 2018. Taught first-year economics graduate students probability theory and statistical inference. Subsequently won 2019 TA Excellence award. Instructors: Brendan Beare \& Graham Elliot.
+
+\item Ph.D. Computation, Winter 2017 \& 2018. Taught first-year economics graduate students data visualization in Stata, dynamic programming in Matlab, as well as basic batch scripts and server usage. Instructors: Michelle White \& Garey Ramey.
+
+\item M.A. International Economics, Spring 2018, 2019, \& 2020. Taught public policy master's students data cleaning in Stata, regression analysis, and structural modeling. Instructors: Natalia Ramondo \& Renee Bowen.
+\end{blist}
+
+\mysep{}
+\begin{tabularx}{\textwidth}{LR}
+\textbf{Environmental Defense Fund}, New York, NY 
+&
+July 2019 - Sept. 2019
+\\
+\emph{Pre-doctoral Intern}, Office of the Chief Economist
+\end{tabularx}
+\begin{blist}
+\item Summer position researching climate change adaptation; wrote forthcoming policy report, ``Agricultural climate change adaptation: a review of macroeconomic approaches.''
+\end{blist}
+
+\mysep{}
+\begin{tabularx}{\textwidth}{LR}
+\textbf{University of California, San Diego}, La Jolla, CA 
+& June 2018 - Nov. 2018
+\\
+\emph{Research Assistant}
+\end{tabularx}
+\begin{blist}
+\item Wrote Structural VAR ado files in Stata to estimate impulse response functions that maximize forecast error variance. Required extensive use of Mata and knowledge of MATLAB. Supervisor: Valerie Ramey.
+\item Analysis of the effectiveness of fixed vs random effects for macroeconomic model identification. Supervisor: David Lagakos.
+\end{blist}
+
+\mysep{}
+\begin{tabularx}{\textwidth}{LR}
+\textbf{Federal Reserve Bank of New York}, New York, NY
+& June 2012 - July 2015 
+\\
+\emph{Senior Research Analyst}, Research Group, Financial Intermediation
+\end{tabularx}
+\begin{blist}
+\item Overhauled system through which the Research, Markets, and Banking Supervision groups access bank holding company regulatory data using SQL, SAS, and Stata. 
+\item Produced quarterly policy reports on banking industry. Analysis performed in Stata and VBA. 
+\end{blist}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mysep{}
+\section*{Technical skills}
+
+\textbf{Programming languages}
+\begin{blist}
+\item Fluent: Python
+  (\href{https://github.com/tara-sullivan/hcs/blob/master/hcs/model/afmodel.py}{quantitative example}; 
+  \href{https://github.com/tara-sullivan/hcs/blob/master/hcs/img/code/plot_line_labels.py}{matplotlib example}); Stata (\href{https://github.com/tara-sullivan/hcs/blob/master/hcs/data/ipeds/c/clean_data/ipeds_c_clean.do}{example}); \LaTeX
+
+\item Familiar: Git, SQL, VBA, SAS, MATLAB, Mata, batch script, shell script
+\end{blist}
+
+\mysep{}
+\textbf{Analysis}
+\begin{blist}
+\item Fluent:
+Statistical inference (hypothesis testing, interval estimation);
+Point estimation methods (MLE, GMM, Bayes estimators);
+Linear regression;
+Instrumental variables;
+Panel data analysis (unobserved effects models, discrete choice models, and censored and truncated regression models);
+Time-series analysis (reduced-form and structural VARs, cointegration, forecast error variance decomposition);
+Observational causal inference;
+Nonparametric and semi-parametric models (kernel density estimation, bandwidth selection and cross validation, local polynomial regression);
+Optimal stopping problems
+
+\item Familiar: 
+General method of sieves;
+Neural networks;
+Bayesian networks;
+Regression discontinuity design;
+Potential outcomes models;
+Markov models;
+Propensity score matching; 
+Bootstrapping;
+Synthetic control methods; 
+Principal component analysis;
+Quantile regression;
+Numerical linear algebra;
+Nonlinear systems and numerical optimization 
+\end{blist}
+
+\end{document}
